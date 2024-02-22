@@ -103,11 +103,12 @@ def solveNQueens(n: int) -> list[list[str]]:
 	posDiagonal = set()  # (r + c)
 	negDiagonal = set()  # (r - c)
 	legalStates = [0]
+	eachState = [0 for i in range(n)]
 
 	result = []
 	board = [["."] * n for i in range(n)]
 
-	def backtrack(r,legalStates):
+	def backtrack(r,legalStates, eachState):
 		# Base case: If all queens are placed (reached last row), append the current board configuration to the result
 		if r == n:
 			copy = ["".join(row) for row in board]
@@ -126,8 +127,10 @@ def solveNQueens(n: int) -> list[list[str]]:
 			negDiagonal.add(r - c)
 			board[r][c] = "Q"  # Place the queen
 			legalStates[0]+=1
+			eachState[r] += 1
 			# Recursive call to place queens in the next row
-			backtrack(r + 1, legalStates)
+			backtrack(r + 1, legalStates, eachState)
+
 
 			# Backtrack: Remove the queen and reset states of occupied columns and diagonals
 			col.remove(c)
@@ -135,14 +138,15 @@ def solveNQueens(n: int) -> list[list[str]]:
 			negDiagonal.remove(r - c)
 			board[r][c] = "."
 
-	backtrack(0,legalStates)  # Start backtracking from the first row
+	backtrack(0,legalStates, eachState)  # Start backtracking from the first row
 	print("total legal states, not counting initial one(1): ",legalStates[0])
+	print("broken to each level: ",eachState)
 	return result
 
 # Driver Code
 if __name__ == '__main__':
 	#solveNQ()
-	res = solveNQueens(5)
+	res = solveNQueens(8)
 	count = len(res)
 	print("total solutions: ",count)
 
