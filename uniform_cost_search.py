@@ -35,6 +35,9 @@ class Node:
     def __repr__(self):
         return self.name
 
+    def __lt__(self, other):
+        return self.pathCost < other.pathCost
+
     def isGoal(self,goal):
         if self.name == goal.name:  #I prolly don even need name to name comparison cuz i have repr
             return True
@@ -81,12 +84,20 @@ def Expand(node):   # will also update parent info to be the best parent
         node.children[i].pathCost = node.pathCost + node.actionCosts[i] #update path cost of the children
         yield node.children[i]
 
-
+def tracePath(node):
+    lst = []
+    lst.append(node.name)
+    while node.parent:
+        lst.append(node.parent.name)
+        node = node.parent
+    return lst
 
     #testcode section
-city1 = Node('City1')
-city2 = city1.add_child('city2',100)
-city3 = city2.add_child('city3',50)
-city4 = city1.add_child('city4',70)
-city5 = city4.add_child('city5',6)
-print(city5.parent)
+# city1 = Node('City1')
+# city2 = city1.add_child('city2',100)
+# city3 = city2.add_child('city3',50)
+# city4 = city1.add_child('city4',70)
+# city5 = city4.add_child('city5',6)
+# dijkstra(city1, city5)
+#
+# print(tracePath(city5))
