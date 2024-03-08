@@ -11,7 +11,7 @@ expandList = []
 frontier = []
 reached = {}
 hMap = defaultdict(lambda: 99999)   #a huge default value for heuristic
-weight = 1.4    #weight 1 gives standard astar algo.
+weight = 1.0    #weight 1 gives standard astar algo.
 
 
 class Node:
@@ -135,25 +135,21 @@ z = Node('z')
 
 # now add parental links
 
-# r.add_child(s,80/2)
-# r.add_child(p,97/2)
-# r.add_child(c,146/2)
-# s.add_child(f,99)
-# s.add_child(a,140/2)
-a.add_child(z,75)
-a.add_child(t,118)
-z.add_child(o,71)
-t.add_child(l,111)
-a.add_child(s,140)
+
+o.add_child(z,71)
 o.add_child(s,151)
+z.add_child(a,75)
+a.add_child(s,140)
+a.add_child(t,118)
+t.add_child(l,111)
 l.add_child(m,70)
 m.add_child(d,75)
 d.add_child(c,120)
 s.add_child(r,80)
-c.add_child(r,146)
 s.add_child(f,99)
-c.add_child(p,138)
+r.add_child(c,146)
 r.add_child(p,97)
+c.add_child(p,138)
 f.add_child(b,211)
 p.add_child(b,101)
 
