@@ -180,6 +180,6 @@ hMap['v']=199
 hMap['z']=374
 
 
-A_star(a, b)
+A_star(o, b)
 
 print("pathTrace: ", printTree(r), "\n\n", "all expanded nodes: ", expandList)
