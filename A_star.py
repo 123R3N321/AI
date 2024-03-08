@@ -11,7 +11,7 @@ expandList = []
 frontier = []
 reached = {}
 hMap = defaultdict(lambda: 99999)   #a huge default value for heuristic
-weight = 1.4
+weight = 1.4    #weight 1 gives standard astar algo.
 
 
 class Node:
