@@ -11,7 +11,7 @@ expandList = []
 frontier = []
 reached = {}
 hMap = defaultdict(lambda: 99999)   #a huge default value for heuristic
-weight = 1.0    #weight 1 gives standard astar algo.
+weight = 1.4    #weight 1 gives standard astar algo.
 
 
 class Node:
@@ -178,4 +178,4 @@ hMap['z']=374
 
 A_star(o, b)
 
-print("pathTrace: ", printTree(r), "\n\n", "all expanded nodes: ", expandList)
+print("pathTrace: ", printTree(o), "\n\n", "all expanded nodes: ", expandList)
