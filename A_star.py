@@ -183,4 +183,3 @@ hMap['z']=374
 A_star(a, b)
 
 print("pathTrace: ", printTree(r), "\n\n", "all expanded nodes: ", expandList)
-print(a.actionCosts)
