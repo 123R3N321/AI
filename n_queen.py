@@ -146,14 +146,14 @@ def solveNQueens(n: int) -> list[list[str]]:
 # Driver Code
 if __name__ == '__main__':
 	#solveNQ()
-	res = solveNQueens(8)
+	res = solveNQueens(5)
 	count = len(res)
 	print("total solutions: ",count)
 
 	'''
 	code below can be used to show all solutions, the actual graphical representation
 	'''
-	# for i in res:
-	# 	for j in i:
-	# 		print(j, end='\n')
-	# 	print()
+	for i in res:
+		for j in i:
+			print(j, end='\n')
+		print()

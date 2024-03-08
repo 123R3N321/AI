@@ -172,8 +172,6 @@ b.add_child(f,211)
 u.add_child(h,98)
 
 
-
-
 dijkstra(r, a)
 
 print("pathTrace: ", printTree(r), "\n\n", "all expanded nodes: ", expandList)
