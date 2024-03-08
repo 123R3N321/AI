@@ -1,6 +1,8 @@
 import heapq
 from collections import defaultdict
 
+#Data logged and tested by @Wea3el
+#Algorithm developed by @123r3n321
 
 
 global pathCosts, expandList, frontier, reached, hMap, weight    # map stores city name as key, entire node with everything as value
