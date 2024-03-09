@@ -11,7 +11,7 @@ expandList = []
 frontier = []
 reached = {}
 hMap = defaultdict(lambda: 99999)   #a huge default value for heuristic
-weight = 1.4    #weight 1 gives standard astar algo.
+weight = 1.4   #weight 1 gives standard astar algo.
 
 
 class Node:
@@ -87,9 +87,9 @@ def traceExpand(node):
     return node.name
 
 def tracePath(node):    #this traces entire branch backward and get pathcosts of each
-    pathCosts.append((node.name, reached[node].pathCost, heuristic(node)))
+    pathCosts.append((node.name, reached[node].pathCost, heuristic(node)/weight,reached[node].pathCost + heuristic(node)))
     while node.parent and node.parent not in pathCosts:
-        pathCosts.append((node.parent.name, node.parent.pathCost, heuristic(node.parent)))
+        pathCosts.append((node.parent.name, node.parent.pathCost, heuristic(node.parent)/weight, node.parent.pathCost + heuristic(node.parent)))
         node = node.parent
 
 def printTree(root):    #a depth-first print of entire tree
@@ -139,6 +139,7 @@ z = Node('z')
 o.add_child(z,71)
 o.add_child(s,151)
 z.add_child(a,75)
+s.add_child(a,140/2)
 a.add_child(s,140/2)
 a.add_child(t,118)
 t.add_child(l,111)
